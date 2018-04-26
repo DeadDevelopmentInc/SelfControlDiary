@@ -15,7 +15,13 @@
     <a href="#">Студенты</a>
     <a href="#">Пользователи</a>
     <a asp-controller="DataSample" asp-action="Index">Выборка</a>
-    <a asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm" >Выход</a>
+    <form asp-area="" asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm">
+        <ul class="nav navbar-nav navbar-collapse">
+            <li>
+                <a href="#" onclick="document.forms['logoutForm'].submit()">Выход</a>
+            </li>
+        </ul>
+    </form>
 </div>
 
         <div id="main">
