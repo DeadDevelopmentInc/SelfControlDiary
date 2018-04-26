@@ -20,10 +20,18 @@
 
 </head>
 <body class="mainConteiner">
+    <table>
+        <tr>
+            <th>
     <div class="navbar-collapse collapse">
         @await Html.PartialAsync("_LoginPartial")
     </div>
-    <div class="conteiner">
+                </th>
+            <th>
+                <a asp-area="" asp-controller="Students" asp-action="Index" class="navbar-brand">Дневник самоконтроля</a>
+            </th>
+            <tr>
+        </table>
 
         @RenderBody()
         <footer class="footer">
