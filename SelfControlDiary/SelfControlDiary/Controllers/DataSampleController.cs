@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SelfControlDiary.Models;
+using SelfControlDiary.ViewModels;
 
 namespace SelfControlDiary.Controllers
 {
