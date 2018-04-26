@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelfControlDiary", "SelfControlDiary\SelfControlDiary.csproj", "{F9E69E04-21A9-4086-AAC8-BFF272D6C21F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelfControlDiary", "SelfControlDiary\SelfControlDiary.csproj", "{F85F85FF-7747-4C34-A009-86201CAD2BAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F9E69E04-21A9-4086-AAC8-BFF272D6C21F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F9E69E04-21A9-4086-AAC8-BFF272D6C21F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F9E69E04-21A9-4086-AAC8-BFF272D6C21F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F9E69E04-21A9-4086-AAC8-BFF272D6C21F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F85F85FF-7747-4C34-A009-86201CAD2BAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F85F85FF-7747-4C34-A009-86201CAD2BAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F85F85FF-7747-4C34-A009-86201CAD2BAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F85F85FF-7747-4C34-A009-86201CAD2BAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {562D68A2-B5B4-4061-AD89-985F7447EE6E}
+		SolutionGuid = {474E2DBC-3FB8-48D7-9859-2AC319D74239}
 	EndGlobalSection
 EndGlobal
