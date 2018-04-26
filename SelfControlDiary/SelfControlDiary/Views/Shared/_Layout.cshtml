@@ -20,13 +20,14 @@
 
 </head>
 <body class="mainConteiner">
+    <div class="navbar-collapse collapse">
+        @await Html.PartialAsync("_LoginPartial")
+    </div>
     <div class="conteiner">
 
-
         @RenderBody()
-        
         <footer class="footer">
-            <p>&copy; 2018 - HACKATHON_2018</p>
+            <p>&copy; 2018 - @DateTime.Now.Year SelfControlDiary</p>
         </footer>
 
     </div>
