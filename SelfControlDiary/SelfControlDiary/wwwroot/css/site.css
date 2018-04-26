@@ -3,6 +3,11 @@
     padding-bottom: 20px;
 }
 
+@font-face {
+    font-family: GardensC_03_1;
+    src: url( GardensC_03_1.otf);
+}
+
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
@@ -10,6 +15,56 @@
     padding-right: 15px;
 }
 
+.mainConteiner {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: url(alexander-redl-185764-unsplash.jpg);
+}
+.conteiner {
+    position: fixed;
+    width: 1200px;
+    height: 700px;
+    background-image: linear-gradient(#9051b9,#745ed4);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    border-radius: 15px;
+}
+
+ .container1 {
+                    display: inline-block;
+                    cursor: pointer;
+                }
+
+                .bar1, .bar2, .bar3 {
+                    width: 35px;
+                    height: 5px;
+                    background-color: #333;
+                    margin: 6px 0;
+                    transition: 0.4s;
+                }
+
+                .change .bar1 {
+                    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+                    transform: rotate(-45deg) translate(-9px, 6px);
+                }
+
+                .change .bar2 {
+                    opacity: 0;
+                }
+
+                .change .bar3 {
+                    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+                    transform: rotate(45deg) translate(-8px, -8px);
+                }
+
+#menuHeader{
+    font-size:12px;
+    background-color:cornsilk;
+    font-family:GardensC_03_1;
+}
 /* Carousel */
 .carousel-caption p {
     font-size: 20px;
@@ -24,6 +79,11 @@
 /* QR code generator */
 #qrCode {
     margin: 15px;
+}
+
+#styleMenu{
+    font-family:GardensC_03_1;
+    font-size:20px;
 }
 
 /* Hide/rearrange for smaller screens */

@@ -1,0 +1,27 @@
+﻿@model SelfControlDiary.ViewModels.IndividualCompareViewModel
+@{
+    ViewData["Title"] = "Сравнение показателей студента " + @ViewBag.Student + " за разные семестры";
+}
+
+<h2>Сравнение показателей студента @ViewBag.Student за разные семестры</h2>
+
+<form asp-action="IndividualCompare">
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <input asp-for="StudentId" value="@ViewBag.StudentId" type="hidden" />
+
+    <div class="form-group">
+        <label asp-for="Sem1" class="control-label">Семестр #1</label>
+        <input type="text" asp-for="Sem1" class="form-control" />
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="Sem2" class="control-label">Семестр #2: </label>
+        <input type="text" asp-for="Sem2" class="form-control" />
+    </div>
+
+    <input type="submit" value="Показать" class="btn btn-default" />
+
+</form>

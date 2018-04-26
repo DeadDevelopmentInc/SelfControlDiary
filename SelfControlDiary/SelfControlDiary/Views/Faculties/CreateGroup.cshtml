@@ -1,0 +1,27 @@
+﻿@model SelfControlDiary.ViewModels.CreateGroupViewModel
+@{
+    ViewData["Title"] = "Добавить группу в список групп факультета " + ViewBag.FacultyName;
+}
+
+<h2>Добавить группу в список групп факультета @ViewBag.FacultyName</h2>
+
+<form asp-action="CreateGroup">
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <input asp-for="FacultyId" type="hidden" value="@ViewBag.FacultyId" />
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Название группы</label>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Course" class="control-label">Номер курса</label>
+        <input asp-for="Course" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Добавить" class="btn btn-default" />
+    </div>
+
+</form>
+

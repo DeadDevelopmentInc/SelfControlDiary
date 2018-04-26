@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using SelfControlDiary.Models
+@using Microsoft.AspNetCore.Http
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    if (await UserManager.IsInRoleAsync(await UserManager.GetUserAsync(User), "admin"))
+    {
+        <ul class="nav navbar-nav">
+            <li><a asp-area="" asp-controller="Faculties" asp-action="Index">Факультеты и группы</a></li>
+            <li><a asp-area="" asp-controller="Students" asp-action="Index">Студенты</a></li>
+            <li><a asp-area="" asp-controller="Users" asp-action="Index">Пользователи</a></li>
+            <li><a asp-area="" asp-controller="DataSample" asp-action="Index">Выборка</a></li>
+        </ul>
+    }
+    <form asp-area="" asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm" class="navbar-right">
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <button type="submit" class="btn btn-link navbar-btn navbar-link">Выйти</button>
+            </li>
+        </ul>
+    </form>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li><a asp-area="" asp-controller="Account" asp-action="Register">Регистрация</a></li>
+        <li><a asp-area="" asp-controller="Account" asp-action="Login">Войти</a></li>
+    </ul>
+}

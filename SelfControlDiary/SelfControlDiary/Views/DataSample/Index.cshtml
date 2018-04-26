@@ -1,0 +1,95 @@
+﻿@model SelfControlDiary.ViewModels.SampleViewModel
+@{
+    ViewData["Title"] = "Выборка студентов по семестрам";
+}
+<h2>Выборка студентов</h2>
+
+<form asp-action="Index">
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="Sem1" class="control-label">Семестр #1</label>
+        <input type="text" asp-for="Sem1" class="form-control" />
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="Sem2" class="control-label">Семестр #2: </label>
+        <input type="text" asp-for="Sem2" class="form-control" />
+    </div>
+
+
+    @*<div class="form-group" id="items">
+            <div id="d1">
+                <label asp-for="GroupId" class="control-label">Группа 1</label>
+                <select data-val="true" data-val-required="The GroupId field is required." id="GroupId1" name="GroupId">
+                    @foreach (var item in ViewBag.Groups)
+                    {
+                        <option value="@item.Value">@item.Key</option>
+                    }
+                </select>
+            </div>
+            <button id="but" type="button" onclick="AddItem()" class="btn btn-default">Добавить группу</button><br />
+        </div>*@
+
+    <div class="form-group">
+        <label class="control-label">Факультет#1: </label>
+        <select data-val="true" data-val-required="The GroupId field is required." id="Fac1Id" name="Fac1Id">
+            @foreach (var item in ViewBag.Faculties)
+            {
+                <option value="@item.Value">@item.Key</option>
+            }
+        </select>
+        <br />
+        <label class="control-label">Курс:</label>
+        <input type="text" asp-for="Course1" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Факультет#2: </label>
+        <select data-val="true" data-val-required="The GroupId field is required." id="Fac2Id" name="Fac2Id">
+            @foreach (var item in ViewBag.Faculties)
+            {
+            <option value="@item.Value">@item.Key</option>
+            }
+        </select>
+        <br />
+        <label class="control-label">Курс: </label>
+        <input type="text" asp-for="Course2" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Sex" class="control-label">Пол</label>
+        <select asp-for="Sex">
+            <option value="Мужской" selected>Мужской</option>
+            <option value="Женский">Женский</option>
+        </select>
+    </div>
+
+    <input type="submit" value="Показать" class="btn btn-default" />
+
+</form>
+
+@*@section scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        var items=1;
+        function AddItem() {
+            if ($("#GroupId1").val() != -1) {
+                div = document.getElementById("d" + items);
+                pDiv = document.getElementById("items");
+                but = document.getElementById("but");
+                items++;
+                newnode = document.createElement("div");
+                newnode.setAttribute("id", "d" + items);
+                pDiv.insertBefore(newnode, but);
+                $('#d' + items).load('@Url.Action("AddGroupElem", "DataSample")?count=' + items);
+            }
+            else {
+                alert("Выбраны все группы, выберите какую-т одну, чтобы добавить другие");
+            }
+        }
+    </script>
+}*@

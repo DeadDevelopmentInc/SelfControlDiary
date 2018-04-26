@@ -1,0 +1,99 @@
+﻿@model SelfControlDiary.ViewModels.StudentListViewModel
+@{
+    ViewData["Title"] = "Управление записями студентов";
+}
+<h2>Список студентов</h2>
+
+<form method="get">
+    <div class="form-inline">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <label class="control-label">Фамилия: </label>
+        @Html.TextBox("lastName", Model.FilterViewModel.SelectedStudent, htmlAttributes: new { @class = "form-control" })
+
+        <label class="control-label">Факультет: </label>
+        @Html.DropDownList("faculty", Model.FilterViewModel.Faculties as SelectList,
+                                         htmlAttributes: new { @class = "form-control", @id = "fac" })
+
+        <label class="control-label">Группа: </label>
+        <mybreak id="insertBlock">
+            @Html.DropDownList("group", Model.FilterViewModel.Groups as SelectList,
+                                             htmlAttributes: new { @class = "form-control" })
+        </mybreak>
+
+        <label class="control-label">Курс: </label>
+        @Html.TextBox("course", Model.FilterViewModel.SelectedCourse, htmlAttributes: new { @class = "form-control" })
+
+        <input type="submit" value="Фильтр" class="btn btn-default" />
+    </div>
+</form>
+<br />
+
+<table class="table">
+    <tr><th>Имя</th><th>Фамилия</th><th>Группа</th><th>Пол</th><th>Дата рождения</th><th></th></tr>
+    @foreach (var item in Model.Students)
+    {
+        <tr>
+            <td>@item.FirstName</td>
+            <td>@item.LastName</td>
+            <td>@item.GroupName</td>
+            <td>@item.Sex</td>
+            <td>@item.BirthDate.ToString("dd.MM.yyyy")</td>
+            <td>
+                <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@item.Id">Изменить</a>
+                <a class="btn btn-sm btn-primary" asp-action="IndicatorLists" asp-route-id="@item.Id">Показатели</a>
+            </td>
+
+        </tr>
+    }
+</table>
+
+@if (Model.PageViewModel.HasPreviousPage)
+{
+    <a asp-action="Index"
+       asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
+       asp-route-lastName="@(Model.FilterViewModel.SelectedStudent)"
+       asp-route-group="@(Model.FilterViewModel.SelectedGroup)"
+       asp-route-faculty="@(Model.FilterViewModel.SelectedFaculty)"
+       asp-route-course="@(Model.FilterViewModel.SelectedCourse)"
+       asp-route-sortorder="@(Model.SortViewModel.Current)"
+       class="btn btn-default btn">
+        <i class="glyphicon glyphicon-chevron-left"></i>
+        Назад
+    </a>
+}
+@if (Model.PageViewModel.HasNextPage)
+{
+    <a asp-action="Index"
+       asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
+       asp-route-lastName="@(Model.FilterViewModel.SelectedStudent)"
+       asp-route-group="@(Model.FilterViewModel.SelectedGroup)"
+       asp-route-faculty="@(Model.FilterViewModel.SelectedFaculty)"
+       asp-route-course="@(Model.FilterViewModel.SelectedCourse)"
+       asp-route-sortorder="@(Model.SortViewModel.Current)"
+       class="btn btn-default btn">
+        Вперед
+        <i class="glyphicon glyphicon-chevron-right"></i>
+    </a>
+}
+@if (Model.PageViewModel.TotalPages > 1)
+{
+    <br />
+    <b>Страница @Model.PageViewModel.PageNumber из @Model.PageViewModel.TotalPages</b>
+}
+
+@section scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#fac').change(function (e) {
+                var id = $('#fac').val();
+                $('#insertBlock').load('@Url.Action("FilterGroups", "Students")?id='+id)
+            });
+        });
+        $(document).ready(function () {
+            var id = $('#fac').val();
+            $('#insertBlock').load('@Url.Action("FilterGroups", "Students")?id='+id)
+        });
+    </script>
+}

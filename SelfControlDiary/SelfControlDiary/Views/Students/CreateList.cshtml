@@ -1,0 +1,143 @@
+﻿@model SelfControlDiary.ViewModels.CreateIndicatorListViewModel
+@{
+    ViewData["Title"] = "Добавление данных о замере для студента " + ViewBag.Student;
+}
+
+<h2>Добавление данных о замере для студента @ViewBag.Student</h2>
+
+<form asp-action="CreateList">
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <input asp-for="StudentId" type="hidden" value="@ViewBag.StudentId" />
+
+    <div class="form-group">
+        <label asp-for="Date" class="control-label">Дата замера</label>
+        <input asp-for="Date" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Semestr" class="control-label">Семестр</label>
+        <input asp-for="Semestr" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Height" class="control-label">Рост, в см</label>
+        <input asp-for="Height" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Weight" class="control-label">Вес, в кг</label>
+        <input asp-for="Weight" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="JEL" class="control-label">Жизненная ёмкость лёгких(ЖЕЛ), в мл</label>
+        <input asp-for="JEL" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="BaseForce" class="control-label">Становая сила, в кг</label>
+        <input asp-for="BaseForce" class="form-control" />
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="LeftWrist" class="control-label">Сила левой кисти, в кг</label>
+        <input asp-for="LeftWrist" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RightWrist" class="control-label">Сила правой кисти, в кг</label>
+        <input asp-for="RightWrist" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Pause" class="control-label">Пауза, в см</label>
+        <input asp-for="Pause" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Breath" class="control-label">Вдох, в см</label>
+        <input asp-for="Breath" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Exhalation" class="control-label">Выдох, в см</label>
+        <input asp-for="Exhalation" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ChSS" class="control-label">ЧСС, в ударах в минуту</label>
+        <input asp-for="ChSS" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ADS" class="control-label">АДС, в ударах в минуту</label>
+        <input asp-for="ADS" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ADD" class="control-label">АДД, в ударах в минуту</label>
+        <input asp-for="ADD" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Run" class="control-label">Бег, дистанция в метрах</label>
+        <input asp-for="Run" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Incline" class="control-label">Наклон из положения сидя, см</label>
+        <input asp-for="Incline" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Bending" class="control-label">Отжимания от скамейки, раз</label>
+        <input asp-for="Bending" class="form-control" />
+    </div>
+
+    @if (ViewBag.Sex == "Мужской")
+    {
+        <div class="form-group">
+            <label asp-for="Pulling" class="control-label">Подтягивания, раз</label>
+            <input asp-for="Pulling" class="form-control" />
+        </div>
+    }
+    else
+    {
+        <div class="form-group">
+            <label asp-for="Press" class="control-label">Пресс, раз</label>
+            <input asp-for="Press" class="form-control" />
+        </div>
+    }
+
+    <div class="form-group">
+        <label asp-for="Squatting" class="control-label">Приседания, раз</label>
+        <input asp-for="Squatting" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Genchi" class="control-label">Проба Генчи (задержка дыхания после выдоха), секунд</label>
+        <input asp-for="Genchi" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Shtange" class="control-label">Проба Штанге (задержка дыхания на вдохе), секунд</label>
+        <input asp-for="Shtange" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CCC" class="control-label">Функциональная проба ССС (20 приседаний за 30 секунд), в секундах</label>
+        <input asp-for="CCC" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Stat" class="control-label">Ортостатическая проба, учащение пульса за 1 минуту в ударах/сек</label>
+        <input asp-for="Stat" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Добавить" class="btn btn-default" />
+    </div>
+
+</form>

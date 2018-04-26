@@ -1,0 +1,170 @@
+﻿@model SelfControlDiary.ViewModels.IndividualCompareResultViewModel
+@{
+    ViewData["Title"] = "Показатели студента " + Model.l1.Stud.LastName + " " + Model.l1.Stud.FirstName + " в " + Model.l1.Semestr + " и " + Model.l2.Semestr + " семестрах";
+}
+
+<h2>Показатели студента @Model.l1.Stud.LastName @Model.l1.Stud.FirstName в @Model.l1.Semestr и @Model.l2.Semestr семестрах</h2>
+
+<table class="table">
+    <tr><th>Наименование показателя</th><th>Семестр @Model.l1.Semestr</th><th>Вердикт</th><th>Семестр @Model.l2.Semestr</th><th>Вердикт</th>
+    <tr>
+        <td>Весоростовой индекс</td>
+        <td>@Html.Raw(Model.l1.GetVRIndex())</td>
+        <td>@Html.Raw(Model.l1.GetVRVerdict())</td>
+        <td>@Html.Raw(Model.l2.GetVRIndex())</td>
+        <td>@Html.Raw(Model.l2.GetVRVerdict())</td>
+    </tr>
+    <tr>
+        <td>Жизненный индекс</td>
+        <td>@Html.Raw(Model.l1.GetLifeIndex())</td>
+        <td>@Html.Raw(Model.l1.GetLifeVerdict())</td>
+        <td>@Html.Raw(Model.l2.GetLifeIndex())</td>
+        <td>@Html.Raw(Model.l2.GetLifeVerdict())</td>
+    </tr>
+    <tr>
+        <td>Силовой индекс правой кисти</td>
+        <td>@Html.Raw(Model.l1.GetRightWristPowerIndex())</td>
+        <td>@Html.Raw(Model.l1.GetRightWristPowerVerdict())</td>
+        <td>@Html.Raw(Model.l2.GetRightWristPowerIndex())</td>
+        <td>@Html.Raw(Model.l2.GetRightWristPowerVerdict())</td>
+    </tr>
+    <tr>
+        <td>Силовой индекс левой кисти</td>
+        <td>@Html.Raw(Model.l1.GetLeftWristPowerIndex())</td>
+        <td>@Html.Raw(Model.l1.GetLeftWristPowerVerdict())</td>
+        <td>@Html.Raw(Model.l2.GetLeftWristPowerIndex())</td>
+        <td>@Html.Raw(Model.l2.GetLeftWristPowerVerdict())</td>
+    </tr>
+    <tr>
+        <td>Становый индекс</td>
+        <td>@Html.Raw(Model.l1.GetBaseForceIndex())</td>
+        <td>@Html.Raw(Model.l1.GetBaseForceVerdict())</td>
+        <td>@Html.Raw(Model.l2.GetBaseForceIndex())</td>
+        <td>@Html.Raw(Model.l2.GetBaseForceVerdict())</td>
+    </tr>
+    <tr>
+        <td>АПСК (Адаптационный потенциал системы кровообращения)</td>
+        <td>@Html.Raw(Model.l1.GetAPSKIndex())</td>
+        <td>@Html.Raw(Model.l1.GetAPSKVerdict())</td>
+        <td>@Html.Raw(Model.l2.GetAPSKIndex())</td>
+        <td>@Html.Raw(Model.l2.GetAPSKVerdict())</td>
+    </tr>
+    <tr>
+        <td>Показатель Кремптона</td>
+        <td>@Html.Raw(Model.l1.GetKremptonIndex())</td>
+        <td>@Html.Raw(Model.l1.GetKremptonVerdict())</td>
+        <td>@Html.Raw(Model.l2.GetKremptonIndex())</td>
+        <td>@Html.Raw(Model.l2.GetKremptonVerdict())</td>
+    </tr>
+    <tr>
+        <td>Вегетативный индекс Кердо</td>
+        <td>@Html.Raw(Model.l1.GetKerdoIndex())</td>
+        <td>@Html.Raw(Model.l1.GetKerdoVerdict())</td>
+        <td>@Html.Raw(Model.l2.GetKerdoIndex())</td>
+        <td>@Html.Raw(Model.l2.GetKerdoVerdict())</td>
+    </tr>
+    <tr>
+        <td>Коэффициент выносливости</td>
+        <td>@Html.Raw(Model.l1.GetStaminaCoef())</td>
+        <td>@Html.Raw(Model.l1.GetStaminaCoefVerdict())</td>
+        <td>@Html.Raw(Model.l2.GetStaminaCoef())</td>
+        <td>@Html.Raw(Model.l2.GetStaminaCoefVerdict())</td>
+    </tr>
+    <tr>
+        <td>Уровень физического состояния</td>
+        <td>@Html.Raw(Model.l1.GetUFS())</td>
+        <td>@Html.Raw(Model.l1.GetUFSVerdict())</td>
+        <td>@Html.Raw(Model.l2.GetUFS())</td>
+        <td>@Html.Raw(Model.l2.GetUFSVerdict())</td>
+    </tr>
+    <tr>
+        <td>Индекс Робинсона (ПДП)</td>
+        <td>@Html.Raw(Model.l1.GetRobinsonIndex())</td>
+        <td>@Html.Raw(Model.l1.GetRobinsonVerdict())</td>
+        <td>@Html.Raw(Model.l2.GetRobinsonIndex())</td>
+        <td>@Html.Raw(Model.l2.GetRobinsonVerdict())</td>
+    </tr>
+    <tr>
+        <td>Индекс массы тела</td>
+        <td>@Html.Raw(Model.l1.GetWeightIndex())</td>
+        <td>@Html.Raw(Model.l1.GetWeightVerdict())</td>
+        <td>@Html.Raw(Model.l2.GetWeightIndex())</td>
+        <td>@Html.Raw(Model.l2.GetWeightVerdict())</td>
+    </tr>
+    <tr>
+        <td>Бег</td>
+        <td>@Html.Raw(Model.l1.Run)</td>
+        <td>@Html.Raw(Model.l1.GetRunVerdict())</td>
+        <td>@Html.Raw(Model.l2.Run)</td>
+        <td>@Html.Raw(Model.l2.GetRunVerdict())</td>
+    </tr>
+    <tr>
+        <td>Наклон из положения сидя</td>
+        <td>@Html.Raw(Model.l1.Incline)</td>
+        <td>@Html.Raw(Model.l1.GetInclineVerdict())</td>
+        <td>@Html.Raw(Model.l2.Incline)</td>
+        <td>@Html.Raw(Model.l2.GetInclineVerdict())</td>
+    </tr>
+    <tr>
+        <td>Отжимания</td>
+        <td>@Html.Raw(Model.l1.Bending)</td>
+        <td>@Html.Raw(Model.l1.GetBendingVerdict())</td>
+        <td>@Html.Raw(Model.l2.Bending)</td>
+        <td>@Html.Raw(Model.l2.GetBendingVerdict())</td>
+    </tr>
+    @if (Model.Sex == "Мужской")
+    {
+    <tr>
+        <td>Подтягивания</td>
+        <td>@Html.Raw(Model.l1.Pulling)</td>
+        <td>@Html.Raw(Model.l1.GetPullingVerdict())</td>
+        <td>@Html.Raw(Model.l2.Pulling)</td>
+        <td>@Html.Raw(Model.l2.GetPullingVerdict())</td>
+    </tr>
+    }
+    else
+    {
+        <tr>
+            <td>Пресс</td>
+            <td>@Html.Raw(Model.l1.Press)</td>
+            <td>@Html.Raw(Model.l1.GetPressVerdict())</td>
+            <td>@Html.Raw(Model.l2.Press)</td>
+            <td>@Html.Raw(Model.l2.GetPressVerdict())</td>
+        </tr>
+    }
+        <tr>
+            <td>Приседания</td>
+            <td>@Html.Raw(Model.l1.Squatting)</td>
+            <td>@Html.Raw(Model.l1.GetSquattingVerdict())</td>
+            <td>@Html.Raw(Model.l2.Squatting)</td>
+            <td>@Html.Raw(Model.l2.GetSquattingVerdict())</td>
+        </tr>
+    <tr>
+        <td>Проба Генчи(задержка дыхания после выдоха)</td>
+        <td>@Html.Raw(Model.l1.Genchi)</td>
+        <td>@Html.Raw(Model.l1.GetGenchiVerdict())</td>
+        <td>@Html.Raw(Model.l2.Genchi)</td>
+        <td>@Html.Raw(Model.l2.GetGenchiVerdict())</td>
+    </tr>
+    <tr>
+        <td>Проба Штанге(задержка дыхания на вдохе)</td>
+        <td>@Html.Raw(Model.l1.Shtange)</td>
+        <td>@Html.Raw(Model.l1.GetShtangeVerdict())</td>
+        <td>@Html.Raw(Model.l2.Shtange)</td>
+        <td>@Html.Raw(Model.l2.GetShtangeVerdict())</td>
+    </tr>
+    <tr>
+        <td>Функциональная проба ССС(20 приседаний за 30 секунд)</td>
+        <td>@Html.Raw(Model.l1.CCC)</td>
+        <td>@Html.Raw(Model.l1.GetCCCVerdict())</td>
+        <td>@Html.Raw(Model.l2.CCC)</td>
+        <td>@Html.Raw(Model.l2.GetCCCVerdict())</td>
+    </tr>
+    <tr>
+        <td>Ортостатическая проба</td>
+        <td>@Html.Raw(Model.l1.Stat)</td>
+        <td>@Html.Raw(Model.l1.GetStatVerdict())</td>
+        <td>@Html.Raw(Model.l2.Stat)</td>
+        <td>@Html.Raw(Model.l2.GetStatVerdict())</td>
+    </tr>
+</table>

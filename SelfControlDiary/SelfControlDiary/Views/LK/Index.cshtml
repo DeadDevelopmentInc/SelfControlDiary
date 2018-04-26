@@ -1,0 +1,36 @@
+﻿@model SelfControlDiary.ViewModels.IndexLKViewModel
+@{
+    ViewData["Title"] = "Личный кабинет студента " + Model.LastName + " " + Model.FirstName;
+}
+<h2>Личный кабинет студента  @Model.LastName @Model.FirstName</h2>
+<table class="table">
+    <tr>
+        <td>Фамилия</td>
+        <td>@Model.LastName</td>
+    </tr>
+    <tr>
+        <td>Имя</td>
+        <td>@Model.FirstName</td>
+    </tr>
+    <tr>
+        <td>Группа</td>
+        <td>@Model.Group</td>
+    </tr>
+    <tr>
+        <td>Пол</td>
+        <td>@Model.Sex</td>
+    </tr>
+    <tr>
+        <td>Дата рождения</td>
+        <td>@Model.BirthDate.ToString("dd.MM.yyyy")</td>
+    </tr>
+    <tr>
+        <td>
+            <a class="btn btn-sm btn-primary" asp-controller="Students" asp-action="Edit" asp-route-id="@Model.StudentId">Изменить данные</a>
+            <a class="btn btn-sm btn-primary" asp-controller="Account" asp-action="ChangePassword">Сменить пароль</a>
+            <a class="btn btn-sm btn-primary" asp-controller="Students" asp-action="IndicatorLists" asp-route-id="@Model.StudentId">Мои замеры показателей</a>
+            <a class="btn btn-sm btn-primary" asp-controller="Students" asp-action="IndividualCompare" asp-route-id="@Model.StudentId">Сравнить мои замеры</a>
+        </td>
+        <td></td>
+    </tr>
+</table>

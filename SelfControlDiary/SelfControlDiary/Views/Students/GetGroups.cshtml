@@ -1,0 +1,8 @@
+﻿@model SelfControlDiary.ViewModels.RegisterChangeFacultyViewModel
+
+<select class="form-control" data-val="true" data-val-required="Поле группа - обязательное для заполнения" name="GroupId">
+    @foreach (var item in Model.Groups)
+    {
+        <option value="@item.Value">@item.Key</option>
+    }
+</select>

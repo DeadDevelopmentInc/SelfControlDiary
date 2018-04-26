@@ -1,0 +1,8 @@
+﻿@model SelfControlDiary.ViewModels.RegisterChangeFacultyViewModel
+
+<select class="form-control" id="group" name="group">
+    @foreach (var item in Model.Groups)
+    {
+        <option value="@item.Value">@item.Key</option>
+    }
+</select>

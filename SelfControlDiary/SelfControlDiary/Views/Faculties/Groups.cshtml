@@ -1,0 +1,29 @@
+﻿@model SelfControlDiary.Models.Faculty
+@{
+    ViewData["Title"] = "Управление группами факультета " + Model.Name;
+}
+
+<h2>Управление группами факультета @Model.Name</h2>
+
+<table class="table">
+    <tr><th>Название</th><th>Курс</th><th></th></tr>
+    @foreach (var item in Model.Groups)
+    {
+    <tr>
+        <td>@item.Name</td>
+        <td>@item.Course</td>
+        <td>
+            <form asp-action="DeleteGroup" asp-route-id="@item.Id" method="post">
+                <a class="btn btn-sm btn-primary" asp-action="EditGroup" asp-route-id="@item.Id">Изменить</a>
+                <button type="submit" class="btn btn-sm btn-danger">
+                    Удалить
+                </button>
+            </form>
+        </td>
+
+    </tr>
+    }
+</table>
+
+<a asp-action="CreateGroup" asp-route-id="@Model.Id">Добавить группу</a>
+<a asp-action="Index" style="float: right;">Назад к меню управления факультетами</a>

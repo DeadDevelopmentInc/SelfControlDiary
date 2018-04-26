@@ -1,0 +1,29 @@
+﻿@model SelfControlDiary.Models.Student
+@{
+    ViewData["Title"] = "Список показателей студента" + @Model.LastName + " " + Model.FirstName;
+}
+<h2>Список замеров показателей студента @Model.LastName @Model.FirstName</h2>
+
+<table class="table">
+    <tr><th>Дата замера</th><th>Семестр</th><th></th><th></th><th></th></tr>
+    @foreach (var item in Model.IndicatorLists)
+    {
+        <tr>
+            <td>@item.Date.ToString("dd.MM.yyyy")</td>
+            <td>@item.Semestr</td>
+            <td>
+                <form asp-action="DeleteList" asp-route-id="@item.Id" method="post">
+                    <a class="btn btn-sm btn-primary" asp-action="EditList" asp-route-id="@item.Id">Изменить</a>
+                    <a class="btn btn-sm btn-primary" asp-action="ShowList" asp-route-id="@item.Id">Посмотреть</a>
+                    <button type="submit" class="btn btn-sm btn-danger">
+                        Удалить
+                    </button>
+                </form>
+            </td>
+
+        </tr>
+    }
+</table>
+
+<a asp-action="CreateList" asp-route-id="@Model.Id">Добавить новый замер</a> <br />
+<a asp-controller="Students" asp-action="IndividualCompare" asp-route-id="@Model.Id">Сравнить замеры</a>

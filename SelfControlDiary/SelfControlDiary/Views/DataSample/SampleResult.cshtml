@@ -1,0 +1,129 @@
+﻿@model SelfControlDiary.ViewModels.SampleListViewModel
+@{
+    ViewData["Title"] = "Результат выборки";
+}
+<h2>Результат выборки @Model.Sem1 семестр (@ViewBag.Fac1) vs @Model.Sem2 семестр (@ViewBag.Fac2), пол - @Model.Sex</h2>
+<table class="table">
+    <tr><th>Наименование показателя</th><th>Семестр @Model.Sem1 (@ViewBag.Fac1)</th><th>Семестр @Model.Sem2 (@ViewBag.Fac2)</th>
+    <tr>
+        <td>Весоростовой индекс</td>
+        <td>@Html.Raw(Math.Round(Model.List1.Average(p => p.GetVRIndex()), 2))</td>
+        <td>@Html.Raw(Math.Round(Model.List2.Average(p => p.GetVRIndex()), 2))</td>
+    </tr>
+    <tr>
+        <td>Жизненный индекс</td>
+        <td>@Html.Raw(Math.Round(Model.List1.Average(p => p.GetLifeIndex()), 2))</td>
+        <td>@Html.Raw(Math.Round(Model.List2.Average(p => p.GetLifeIndex()), 2))</td>
+    </tr>
+    <tr>
+        <td>Силовой индекс правой кисти</td>
+        <td>@Html.Raw(Math.Round(Model.List1.Average(p => p.GetRightWristPowerIndex()), 2))</td>
+        <td>@Html.Raw(Math.Round(Model.List2.Average(p => p.GetRightWristPowerIndex()), 2))</td>
+    </tr>
+    <tr>
+        <td>Силовой индекс левой кисти</td>
+        <td>@Html.Raw(Math.Round(Model.List1.Average(p => p.GetLeftWristPowerIndex()), 2))</td>
+        <td>@Html.Raw(Math.Round(Model.List2.Average(p => p.GetLeftWristPowerIndex()), 2))</td>
+    </tr>
+    <tr>
+        <td>Становый индекс</td>
+        <td>@Html.Raw(Math.Round(Model.List1.Average(p => p.GetBaseForceIndex()), 2))</td>
+        <td>@Html.Raw(Math.Round(Model.List2.Average(p => p.GetBaseForceIndex()), 2))</td>
+    </tr>
+    <tr>
+        <td>АПСК (Адаптационный потенциал системы кровообращения)</td>
+        <td>@Html.Raw(Math.Round(Model.List1.Average(p => p.GetAPSKIndex()), 2))</td>
+        <td>@Html.Raw(Math.Round(Model.List2.Average(p => p.GetAPSKIndex()), 2))</td>
+    </tr>
+    <tr>
+        <td>Показатель Кремптона</td>
+        <td>@Html.Raw(Math.Round(Model.List1.Average(p => p.GetKremptonIndex()), 2))</td>
+        <td>@Html.Raw(Math.Round(Model.List2.Average(p => p.GetKremptonIndex()), 2))</td>
+    </tr>
+    <tr>
+        <td>Вегетативный индекс Кердо</td>
+        <td>@Html.Raw(Math.Round(Model.List1.Average(p => p.GetKerdoIndex()), 2))</td>
+        <td>@Html.Raw(Math.Round(Model.List2.Average(p => p.GetKerdoIndex()), 2))</td>
+    </tr>
+    <tr>
+        <td>Коэффициент выносливости</td>
+        <td>@Html.Raw(Math.Round(Model.List1.Average(p => p.GetStaminaCoef()), 2))</td>
+        <td>@Html.Raw(Math.Round(Model.List2.Average(p => p.GetStaminaCoef()), 2))</td>
+    </tr>
+    <tr>
+        <td>Уровень физического состояния</td>
+        <td>@Html.Raw(Math.Round(Model.List1.Average(p => p.GetUFS()), 2))</td>
+        <td>@Html.Raw(Math.Round(Model.List2.Average(p => p.GetUFS()), 2))</td>
+    </tr>
+    <tr>
+        <td>Индекс Робинсона (ПДП)</td>
+        <td>@Html.Raw(Math.Round(Model.List1.Average(p => p.GetRobinsonIndex()), 2))</td>
+        <td>@Html.Raw(Math.Round(Model.List2.Average(p => p.GetRobinsonIndex()), 2))</td>
+    </tr>
+    <tr>
+        <td>Индекс массы тела</td>
+        <td>@Html.Raw(Math.Round(Model.List1.Average(p => p.GetWeightIndex()), 2))</td>
+        <td>@Html.Raw(Math.Round(Model.List2.Average(p => p.GetWeightIndex()), 2))</td>
+    </tr>
+    <tr>
+        <td>Бег</td>
+        <td>@Html.Raw(Math.Round(Model.List1.Average(p => p.Run), 2))</td>
+        <td>@Html.Raw(Math.Round(Model.List2.Average(p => p.Run), 2))</td>
+    </tr>
+    <tr>
+        <td>Наклон из положения сидя</td>
+        <td>@Html.Raw(Math.Round(Model.List1.Average(p => p.Incline), 2))</td>
+        <td>@Html.Raw(Math.Round(Model.List2.Average(p => p.Incline), 2))</td>
+    </tr>
+    <tr>
+        <td>Отжимания</td>
+        <td>@Html.Raw(Math.Round(Model.List1.Average(p => p.Bending), 2))</td>
+        <td>@Html.Raw(Math.Round(Model.List2.Average(p => p.Bending), 2))</td>
+    </tr>
+    @if (Model.Sex == "Мужской")
+    {
+        <tr>
+            <td>Подтягивания</td>
+            <td>@Html.Raw(Math.Round((double)Model.List1.Average(p => p.Pulling), 2))</td>
+            <td>@Html.Raw(Math.Round((double)Model.List2.Average(p => p.Pulling), 2))</td>
+        </tr>
+    }
+    else
+    {
+        <tr>
+            <td>Пресс</td>
+            <td>@Html.Raw(Math.Round((double)Model.List1.Average(p => p.Press), 2))</td>
+            <td>@Html.Raw(Math.Round((double)Model.List2.Average(p => p.Press), 2))</td>
+        </tr>
+    }
+    <tr>
+        <td>Приседания</td>
+        <td>@Html.Raw(Math.Round(Model.List1.Average(p => p.Squatting), 2))</td>
+        <td>@Html.Raw(Math.Round(Model.List2.Average(p => p.Squatting), 2))</td>
+    </tr>
+    <tr>
+        <td>Проба Генчи(задержка дыхания после выдоха)</td>
+        <td>@Html.Raw(Math.Round(Model.List1.Average(p => p.Genchi), 2))</td>
+        <td>@Html.Raw(Math.Round(Model.List2.Average(p => p.Genchi), 2))</td>
+    </tr>
+    <tr>
+        <td>Проба Штанге(задержка дыхания на вдохе)</td>
+        <td>@Html.Raw(Math.Round(Model.List1.Average(p => p.Shtange), 2))</td>
+        <td>@Html.Raw(Math.Round(Model.List2.Average(p => p.Shtange), 2))</td>
+    </tr>
+    <tr>
+        <td>Функциональная проба ССС(20 приседаний за 30 секунд)</td>
+        <td>@Html.Raw(Math.Round(Model.List1.Average(p => p.CCC), 2))</td>
+        <td>@Html.Raw(Math.Round(Model.List2.Average(p => p.CCC), 2))</td>
+    </tr>
+    <tr>
+        <td>Ортостатическая проба</td>
+        <td>@Html.Raw(Math.Round(Model.List1.Average(p => p.Stat), 2))</td>
+        <td>@Html.Raw(Math.Round(Model.List2.Average(p => p.Stat), 2))</td>
+    </tr>
+    <tr>
+        <td>Количество студентов</td>
+        <td>@Model.Count1</td>
+        <td>@Model.Count2</td>
+    </tr>
+</table>

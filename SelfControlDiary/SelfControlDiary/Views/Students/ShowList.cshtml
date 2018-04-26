@@ -1,0 +1,127 @@
+﻿@model SelfControlDiary.ViewModels.IndicatorsListViewModel
+@{
+    ViewData["Title"] = "Показатели студента " + Model.Stud.LastName + " " + @Model.Stud.FirstName + " на дату " + Model.Date.ToString("dd.MM.yyyy");
+}
+
+<h2>Показатели студента  @Model.Stud.LastName @Model.Stud.FirstName на дату @Model.Date.ToString("dd.MM.yyyy")</h2>
+
+<table class="table">
+    <tr><th>Наименование показателя</th><th>Значение</th><th>Вердикт</th>
+    <tr>
+        <td>Весоростовой индекс</td>
+        <td>@Html.Raw(Model.GetVRIndex())</td>
+        <td>@Html.Raw(Model.GetVRVerdict())</td>
+    </tr>
+    <tr>
+        <td>Жизненный индекс</td>
+        <td>@Html.Raw(Model.GetLifeIndex())</td>
+        <td>@Html.Raw(Model.GetLifeVerdict())</td>
+    </tr>
+    <tr>
+        <td>Силовой индекс правой кисти</td>
+        <td>@Html.Raw(Model.GetRightWristPowerIndex())</td>
+        <td>@Html.Raw(Model.GetRightWristPowerVerdict())</td>
+    </tr>
+    <tr>
+        <td>Силовой индекс левой кисти</td>
+        <td>@Html.Raw(Model.GetLeftWristPowerIndex())</td>
+        <td>@Html.Raw(Model.GetLeftWristPowerVerdict())</td>
+    </tr>
+    <tr>
+        <td>Становый индекс</td>
+        <td>@Html.Raw(Model.GetBaseForceIndex())</td>
+        <td>@Html.Raw(Model.GetBaseForceVerdict())</td>
+    </tr>
+    <tr>
+        <td>АПСК (Адаптационный потенциал системы кровообращения)</td>
+        <td>@Html.Raw(Model.GetAPSKIndex())</td>
+        <td>@Html.Raw(Model.GetAPSKVerdict())</td>
+    </tr>
+    <tr>
+        <td>Показатель Кремптона</td>
+        <td>@Html.Raw(Model.GetKremptonIndex())</td>
+        <td>@Html.Raw(Model.GetKremptonVerdict())</td>
+    </tr>
+    <tr>
+        <td>Вегетативный индекс Кердо</td>
+        <td>@Html.Raw(Model.GetKerdoIndex())</td>
+        <td>@Html.Raw(Model.GetKerdoVerdict())</td>
+    </tr>
+    <tr>
+        <td>Коэффициент выносливости</td>
+        <td>@Html.Raw(Model.GetStaminaCoef())</td>
+        <td>@Html.Raw(Model.GetStaminaCoefVerdict())</td>
+    </tr>
+    <tr>
+        <td>Уровень физического состояния</td>
+        <td>@Html.Raw(Model.GetUFS())</td>
+        <td>@Html.Raw(Model.GetUFSVerdict())</td>
+    </tr>
+    <tr>
+        <td>Индекс Робинсона (ПДП)</td>
+        <td>@Html.Raw(Model.GetRobinsonIndex())</td>
+        <td>@Html.Raw(Model.GetRobinsonVerdict())</td>
+    </tr>
+    <tr>
+        <td>Индекс массы тела</td>
+        <td>@Html.Raw(Model.GetWeightIndex())</td>
+        <td>@Html.Raw(Model.GetWeightVerdict())</td>
+    </tr>
+    <tr>
+        <td>Бег</td>
+        <td>@Html.Raw(Model.Run)</td>
+        <td>@Html.Raw(Model.GetRunVerdict())</td>
+    </tr>
+    <tr>
+        <td>Наклон из положения сидя</td>
+        <td>@Html.Raw(Model.Incline)</td>
+        <td>@Html.Raw(Model.GetInclineVerdict())</td>
+    </tr>
+    <tr>
+        <td>Отжимания</td>
+        <td>@Html.Raw(Model.Bending)</td>
+        <td>@Html.Raw(Model.GetBendingVerdict())</td>
+    </tr>
+    @if (Model.Stud.Sex == "Мужской")
+    {
+        <tr>
+            <td>Подтягивания</td>
+            <td>@Html.Raw(Model.Pulling)</td>
+            <td>@Html.Raw(Model.GetPullingVerdict())</td>
+        </tr>
+    }
+    else
+    {
+        <tr>
+            <td>Пресс</td>
+            <td>@Html.Raw(Model.Press)</td>
+            <td>@Html.Raw(Model.GetPressVerdict())</td>
+        </tr>
+    }
+    <tr>
+        <td>Приседания</td>
+        <td>@Html.Raw(Model.Squatting)</td>
+        <td>@Html.Raw(Model.GetSquattingVerdict())</td>
+    </tr>
+    <tr>
+        <td>Проба Генчи(задержка дыхания после выдоха)</td>
+        <td>@Html.Raw(Model.Genchi)</td>
+        <td>@Html.Raw(Model.GetGenchiVerdict())</td>
+    </tr>
+    <tr>
+        <td>Проба Штанге(задержка дыхания на вдохе)</td>
+        <td>@Html.Raw(Model.Shtange)</td>
+        <td>@Html.Raw(Model.GetShtangeVerdict())</td>
+    </tr>
+    <tr>
+        <td>Функциональная проба ССС(20 приседаний за 30 секунд)</td>
+        <td>@Html.Raw(Model.CCC)</td>
+        <td>@Html.Raw(Model.GetCCCVerdict())</td>
+    </tr>
+    <tr>
+        <td>Ортостатическая проба</td>
+        <td>@Html.Raw(Model.Stat)</td>
+        <td>@Html.Raw(Model.GetStatVerdict())</td>
+    </tr>
+</table>
+<a asp-action="IndicatorLists" asp-route-id="@Model.Stud.Id">Назад</a>
