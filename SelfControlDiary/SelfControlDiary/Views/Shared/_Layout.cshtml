@@ -3,12 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - SelfControlDiary</title>
+    <title>@ViewData["Title"] - HACKATHON_2018</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
-        <link href='~/lib/jquery-ui/themes/base/all.css' rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="~/css/selectMenu.css" />
+        <link rel="stylesheet" href="~/css/style.css" />
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -16,30 +17,18 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
+
 </head>
-<body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-area="" asp-controller="Students" asp-action="Index" class="navbar-brand">Дневник самоконтроля</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                @await Html.PartialAsync("_LoginPartial")
-            </div>
-        </div>
-    </nav>
-    <div class="container body-content">
+<body class="mainConteiner">
+    <div class="conteiner">
+
+
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2017-@DateTime.Now.Year Кафедра "Физическое воспитание и спорт" ГГТУ им. П.О. Сухого</p>
+        
+        <footer class="footer">
+            <p>&copy; 2018 - HACKATHON_2018</p>
         </footer>
+
     </div>
 
     <environment include="Development">
@@ -65,4 +54,5 @@
 
     @RenderSection("Scripts", required: false)
 </body>
+
 </html>

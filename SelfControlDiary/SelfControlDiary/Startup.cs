@@ -61,7 +61,7 @@ namespace SelfControlDiary
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Students}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
