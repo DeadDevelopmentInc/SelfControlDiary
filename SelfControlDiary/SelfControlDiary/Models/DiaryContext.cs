@@ -13,6 +13,7 @@ namespace SelfControlDiary.Models
         public DbSet<Group> Groups { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<IndicatorList> IndicatorLists { get; set; }
+        public DbSet<StandardsControl> StandardControls { get; set; }
 
         public DiaryContext(DbContextOptions<DiaryContext> options) : base(options)
         {

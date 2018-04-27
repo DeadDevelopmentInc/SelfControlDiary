@@ -26,12 +26,6 @@ namespace SelfControlDiary.ViewModels
         public int ChSS { get; set; }
         public int ADS { get; set; }
         public int ADD { get; set; }
-        public int Run { get; set; }
-        public int Incline { get; set; }
-        public int Bending { get; set; }
-        public int? Pulling { get; set; }
-        public int Squatting { get; set; }
-        public int? Press { get; set; }
         public int Genchi { get; set; }
         public int Shtange { get; set; }
         public int CCC { get; set; }
@@ -157,42 +151,6 @@ namespace SelfControlDiary.ViewModels
         public string GetWeightVerdict()
         {
             return IndicatorRatesNorms.GetIMTRes(GetWeightIndex());
-        }
-
-        public string GetRunVerdict()
-        {
-            return IndicatorRatesNorms.GetRunRes(Run, Stud.Sex, Semestr % 2 == 0 ? 
-                Semestr / 2 : Semestr / 2 + 1).ToString();
-        }
-
-        public string GetInclineVerdict()
-        {
-            return IndicatorRatesNorms.GetInclineRes(Incline, Stud.Sex, Semestr % 2 == 0 ?
-                Semestr / 2 : Semestr / 2 + 1).ToString();
-        }
-
-        public string GetBendingVerdict()
-        {
-            return IndicatorRatesNorms.GetBendingRes(Bending, Stud.Sex, Semestr % 2 == 0 ?
-                Semestr / 2 : Semestr / 2 + 1).ToString();
-        }
-
-        public string GetSquattingVerdict()
-        {
-            return IndicatorRatesNorms.GetSquattingRes(Squatting, Stud.Sex, Semestr % 2 == 0 ?
-                Semestr / 2 : Semestr / 2 + 1).ToString();
-        }
-
-        public string GetPullingVerdict()
-        {
-            return IndicatorRatesNorms.GetPullingRes((int)Pulling, Semestr % 2 == 0 ?
-                Semestr / 2 : Semestr / 2 + 1).ToString();
-        }
-
-        public string GetPressVerdict()
-        {
-            return IndicatorRatesNorms.GetPullingRes((int)Press, Semestr % 2 == 0 ?
-                Semestr / 2 : Semestr / 2 + 1).ToString();
         }
 
         public string GetGenchiVerdict()

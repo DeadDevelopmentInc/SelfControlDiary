@@ -313,6 +313,31 @@ namespace SelfControlDiary.Controllers
             }
         }
 
+        public async Task<IActionResult> StandardControls(int? id)
+        {
+            if (id != null)
+            {
+                if (await CheckAccess((int)id))
+                {
+                    Student student = await db.Students.Include("StandardsControls").FirstOrDefaultAsync(t => t.Id == id);
+                    if (student == null)
+                    {
+                        ErrorViewModel error = new ErrorViewModel
+                        {
+                            RequestId = "Ошибка! В базе данных отсутствует запись студента с переданным id = " + id
+                        };
+                        return View("Error", error);
+                    }
+                    return View(student);
+                }
+                else return RedirectToAction("AccessDenied");
+            }
+            else
+            {
+                ErrorViewModel error = new ErrorViewModel { RequestId = "Ошибка! Отсутствует id в параметрах запроса" };
+                return View("Error", error);
+            }
+        }
 
         public async Task<IActionResult> CreateList(int? id)
         {
@@ -347,6 +372,77 @@ namespace SelfControlDiary.Controllers
             }
         }
 
+        public async Task<IActionResult> CreateStandardsControl(int? id)
+        {
+            if (id != null)
+            {
+                if (await CheckAccess((int)id))
+                {
+                    Student student = await db.Students.FirstOrDefaultAsync(t => t.Id == id);
+                    if (student != null)
+                    {
+                        ViewBag.Student = student.FirstName + " " + student.LastName;
+                        ViewBag.StudentId = id;
+                        ViewBag.Sex = student.Sex;
+                        return View();
+                    }
+                    else
+                    {
+                        ErrorViewModel error = new ErrorViewModel
+                        {
+                            RequestId = "Ошибка! В базе данных отсутствует " +
+                            "запись студента с переданным id = " + id
+                        };
+                        return View("Error", error);
+                    }
+                }
+                else return RedirectToAction("AccessDenied");
+            }
+            else
+            {
+                ErrorViewModel error = new ErrorViewModel { RequestId = "Ошибка! Отсутствует id в параметрах запроса" };
+                return View("Error", error);
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateStandardsControl(CreateStandardControlViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (await CheckAccess(model.StudentId))
+                {
+                    var student = await db.Students.FirstOrDefaultAsync(p => p.Id == model.StudentId);
+                    if (db.StandardControls.Where(p => p.Semestr == model.Semestr && p.StudentId == model.StudentId).Count() == 0)
+                    {
+                        StandardsControl list = new StandardsControl
+                        {
+                            StudentId = model.StudentId,
+                            Date = model.Date,
+                            Semestr = model.Semestr,
+                            Bending = model.Bending,
+                            Incline = model.Incline,
+                            Press = model.Press,
+                            Pulling = model.Pulling,
+                            Run = model.Run,
+                            Squatting = model.Squatting
+                        };
+                        await db.StandardControls.AddAsync(list);
+                        await db.SaveChangesAsync();
+                        return RedirectToAction("StandardControls", new { id = model.StudentId });
+                    }
+                    else return View("Error", new ErrorViewModel { RequestId = "В указанном семестре уже были сданы нормативы, " +
+                        "исправьте уже имеющуюся запись" });
+                }
+                else return RedirectToAction("AccessDenied");
+            }
+            Student stud = await db.Students.FirstOrDefaultAsync(t => t.Id == model.StudentId);
+            ViewBag.Sex = stud.Sex;
+            ViewBag.StudentId = model.StudentId;
+            ViewBag.Student = stud.FirstName + " " + stud.LastName;
+            return View(model);
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateList(CreateIndicatorListViewModel model)
         {
@@ -374,15 +470,9 @@ namespace SelfControlDiary.Controllers
                             ChSS = model.ChSS,
                             ADD = model.ADD,
                             ADS = model.ADS,
-                            Run = model.Run,
-                            Bending = model.Bending,
                             CCC = model.CCC,
                             Genchi = model.Genchi,
-                            Incline = model.Incline,
-                            Press = model.Press,
-                            Pulling = model.Pulling,
                             Shtange = model.Shtange,
-                            Squatting = model.Squatting,
                             Stat = model.Stat
                         };
                         await db.IndicatorLists.AddAsync(list);
@@ -473,15 +563,9 @@ namespace SelfControlDiary.Controllers
                                 ChSS = list1.ChSS,
                                 ADD = list1.ADD,
                                 ADS = list1.ADS,
-                                Run = list1.Run,
-                                Bending = list1.Bending,
                                 CCC = list1.CCC,
                                 Genchi = list1.Genchi,
-                                Incline = list1.Incline,
-                                Press = list1.Press,
-                                Pulling = list1.Pulling,
                                 Shtange = list1.Shtange,
-                                Squatting = list1.Squatting,
                                 Stat = list1.Stat
                             };
                             IndicatorsListViewModel l2 = new IndicatorsListViewModel
@@ -503,15 +587,9 @@ namespace SelfControlDiary.Controllers
                                 ChSS = list2.ChSS,
                                 ADD = list2.ADD,
                                 ADS = list2.ADS,
-                                Run = list2.Run,
-                                Bending = list2.Bending,
                                 CCC = list2.CCC,
                                 Genchi = list2.Genchi,
-                                Incline = list2.Incline,
-                                Press = list2.Press,
-                                Pulling = list2.Pulling,
                                 Shtange = list2.Shtange,
-                                Squatting = list2.Squatting,
                                 Stat = list2.Stat
                             };
                             IndividualCompareResultViewModel mod = new IndividualCompareResultViewModel
@@ -570,17 +648,55 @@ namespace SelfControlDiary.Controllers
                             ChSS = list.ChSS,
                             ADD = list.ADD,
                             ADS = list.ADS,
-                            Run = list.Run,
-                            Bending = list.Bending,
                             CCC = list.CCC,
                             Genchi = list.Genchi,
+                            Shtange = list.Shtange,
+                            Stat = list.Stat,
+                            Sex = list.Student.Sex
+                        };
+                        return View(model);
+                    }
+                    else
+                    {
+                        ErrorViewModel error = new ErrorViewModel
+                        {
+                            RequestId = "Ошибка! В базе данных отсутствует " +
+                            "запись с переданным id = " + id
+                        };
+                        return View("Error", error);
+                    }
+                }
+                else return RedirectToAction("AccessDenied");
+            }
+            else
+            {
+                ErrorViewModel error = new ErrorViewModel { RequestId = "Ошибка! Отсутствует id в параметрах запроса" };
+                return View("Error", error);
+            }
+        }
+
+        public async Task<IActionResult> EditStandardControl(int? id)
+        {
+            if (id != null)
+            {
+                StandardsControl list = await db.StandardControls.Include("Student").FirstOrDefaultAsync(t => t.Id == id);
+                if (list != null && await CheckAccess(list.StudentId))
+                {
+                    if (list != null)
+                    {
+                        EditStandardControlViewModel model = new EditStandardControlViewModel
+                        {
+                            Id = list.Id,
+                            Student = list.Student.FirstName + " " + list.Student.LastName,
+                            Date = list.Date,
+                            Semestr = list.Semestr,
+                            Sex = list.Student.Sex,
+                            Bending = list.Bending,
                             Incline = list.Incline,
                             Press = list.Press,
                             Pulling = list.Pulling,
-                            Shtange = list.Shtange,
-                            Squatting = list.Squatting,
-                            Stat = list.Stat,
-                            Sex = list.Student.Sex
+                            Run = list.Run,
+                            Squatting = list.Squatting
                         };
                         return View(model);
                     }
@@ -637,20 +753,52 @@ namespace SelfControlDiary.Controllers
                         list.ChSS = model.ChSS;
                         list.ADD = model.ADD;
                         list.ADS = model.ADS;
-                        list.Run = model.Run;
-                        list.Bending = model.Bending;
                         list.CCC = model.CCC;
                         list.Genchi = model.Genchi;
-                        list.Incline = model.Incline;
-                        list.Press = model.Press;
-                        list.Pulling = model.Pulling;
                         list.Shtange = model.Shtange;
-                        list.Squatting = model.Squatting;
                         list.Stat = model.Stat;
                         await db.SaveChangesAsync();
                         return RedirectToAction("IndicatorLists", new { id = list.StudentId });
                     }
                     return View("Error", new ErrorViewModel { RequestId = "В указанном семестре уже был произведён замер показателей, исправьте уже созданный" });
+                }
+                else return RedirectToAction("AccessDenied");
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditStandardControl(EditStandardControlViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                StandardsControl list = await db.StandardControls.FirstOrDefaultAsync(t => t.Id == model.Id);
+                if (list == null)
+                {
+                    ErrorViewModel error = new ErrorViewModel
+                    {
+                        RequestId = "Ошибка! Прислана пустая модель"
+                    };
+                    return View("Error", error);
+                }
+                if (await CheckAccess(list.StudentId))
+                {
+                    var student = await db.Students.Include("Group").FirstOrDefaultAsync(p => p.Id == list.StudentId);
+                    var l = await db.IndicatorLists.Where(p => p.Semestr == model.Semestr && p.StudentId == list.StudentId).ToListAsync();
+                    if (l.Count() == 0 || model.Semestr == list.Semestr)
+                    {
+                        list.Date = model.Date;
+                        list.Semestr = model.Semestr;
+                        list.Bending = model.Bending;
+                        list.Incline = model.Incline;
+                        list.Press = model.Press;
+                        list.Pulling = model.Pulling;
+                        list.Run = model.Run;
+                        list.Squatting = model.Squatting;
+                        await db.SaveChangesAsync();
+                        return RedirectToAction("StandardControls", new { id = list.StudentId });
+                    }
+                    return View("Error", new ErrorViewModel { RequestId = "В указанном семестре уже были сданы нормативы, исправьте уже созданную запись" });
                 }
                 else return RedirectToAction("AccessDenied");
             }
@@ -675,6 +823,28 @@ namespace SelfControlDiary.Controllers
                 db.IndicatorLists.Remove(list);
                 await db.SaveChangesAsync();
                 return RedirectToAction("IndicatorLists", new { id = StudentId });
+            }
+            else return RedirectToAction("AccessDenied");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteStandardControl(int? id)
+        {
+            IndicatorList list = await db.IndicatorLists.FirstOrDefaultAsync(t => t.Id == id);
+            if (list == null)
+            {
+                ErrorViewModel error = new ErrorViewModel
+                {
+                    RequestId = "Ошибка! В базе данных отсутствует запись сдачи нормативов с переданным id = " + id
+                };
+                return View("Error", error);
+            }
+            if (await CheckAccess(list.StudentId))
+            {
+                int StudentId = list.StudentId;
+                db.IndicatorLists.Remove(list);
+                await db.SaveChangesAsync();
+                return RedirectToAction("StandardControls", new { id = StudentId });
             }
             else return RedirectToAction("AccessDenied");
         }
@@ -713,16 +883,48 @@ namespace SelfControlDiary.Controllers
                         ChSS = list.ChSS,
                         ADD = list.ADD,
                         ADS = list.ADS,
-                        Run = list.Run,
-                        Bending = list.Bending,
                         CCC = list.CCC,
                         Genchi = list.Genchi,
+                        Shtange = list.Shtange,
+                        Stat = list.Stat
+                    };
+                    return View(model);
+                }
+                else return RedirectToAction("AccessDenied");
+            }
+            else
+            {
+                ErrorViewModel error = new ErrorViewModel { RequestId = "Ошибка! Отсутствует id в параметрах запроса" };
+                return View("Error", error);
+            }
+        }
+
+        public async Task<IActionResult> ShowStandardControl(int? id)
+        {
+            if (id != null)
+            {
+                StandardsControl list = await db.StandardControls.Include("Student").FirstOrDefaultAsync(t => t.Id == id);
+                if (list == null)
+                {
+                    ErrorViewModel error = new ErrorViewModel
+                    {
+                        RequestId = "Ошибка! В базе данных отсутствует запись замера с переданным id = " + id
+                    };
+                    return View("Error", error);
+                }
+                if (await CheckAccess(list.StudentId))
+                {
+                    StandardControlListViewModel model = new StandardControlListViewModel
+                    {
+                        Stud = list.Student,
+                        Date = list.Date,
+                        Semestr = list.Semestr,
+                        Bending = list.Bending,
                         Incline = list.Incline,
                         Press = list.Press,
                         Pulling = list.Pulling,
-                        Shtange = list.Shtange,
-                        Squatting = list.Squatting,
-                        Stat = list.Stat
+                        Run = list.Run,
+                        Squatting = list.Squatting
                     };
                     return View(model);
                 }
@@ -753,7 +955,5 @@ namespace SelfControlDiary.Controllers
             };
             return View("Error", error);
         }
-
-
     }
 }

@@ -71,15 +71,8 @@ namespace SelfControlDiary.Controllers
                         ChSS = item.ChSS,
                         ADD = item.ADD,
                         ADS = item.ADS,
-                        Run = item.Run,
-                        Bending = item.Bending,
                         CCC = item.CCC,
                         Genchi = item.Genchi,
-                        Incline = item.Incline,
-                        Press = item.Press,
-                        Pulling = item.Pulling,
-                        Shtange = item.Shtange,
-                        Squatting = item.Squatting,
                         Stat = item.Stat
                     });
                 }
@@ -104,15 +97,9 @@ namespace SelfControlDiary.Controllers
                         ChSS = item.ChSS,
                         ADD = item.ADD,
                         ADS = item.ADS,
-                        Run = item.Run,
-                        Bending = item.Bending,
                         CCC = item.CCC,
                         Genchi = item.Genchi,
-                        Incline = item.Incline,
-                        Press = item.Press,
-                        Pulling = item.Pulling,
                         Shtange = item.Shtange,
-                        Squatting = item.Squatting,
                         Stat = item.Stat
                     });
                 }

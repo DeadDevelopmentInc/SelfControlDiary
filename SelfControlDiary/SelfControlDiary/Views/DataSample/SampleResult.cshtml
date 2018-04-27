@@ -66,42 +66,6 @@
         <td>@Html.Raw(Math.Round(Model.List2.Average(p => p.GetWeightIndex()), 2))</td>
     </tr>
     <tr>
-        <td>Бег</td>
-        <td>@Html.Raw(Math.Round(Model.List1.Average(p => p.Run), 2))</td>
-        <td>@Html.Raw(Math.Round(Model.List2.Average(p => p.Run), 2))</td>
-    </tr>
-    <tr>
-        <td>Наклон из положения сидя</td>
-        <td>@Html.Raw(Math.Round(Model.List1.Average(p => p.Incline), 2))</td>
-        <td>@Html.Raw(Math.Round(Model.List2.Average(p => p.Incline), 2))</td>
-    </tr>
-    <tr>
-        <td>Отжимания</td>
-        <td>@Html.Raw(Math.Round(Model.List1.Average(p => p.Bending), 2))</td>
-        <td>@Html.Raw(Math.Round(Model.List2.Average(p => p.Bending), 2))</td>
-    </tr>
-    @if (Model.Sex == "Мужской")
-    {
-        <tr>
-            <td>Подтягивания</td>
-            <td>@Html.Raw(Math.Round((double)Model.List1.Average(p => p.Pulling), 2))</td>
-            <td>@Html.Raw(Math.Round((double)Model.List2.Average(p => p.Pulling), 2))</td>
-        </tr>
-    }
-    else
-    {
-        <tr>
-            <td>Пресс</td>
-            <td>@Html.Raw(Math.Round((double)Model.List1.Average(p => p.Press), 2))</td>
-            <td>@Html.Raw(Math.Round((double)Model.List2.Average(p => p.Press), 2))</td>
-        </tr>
-    }
-    <tr>
-        <td>Приседания</td>
-        <td>@Html.Raw(Math.Round(Model.List1.Average(p => p.Squatting), 2))</td>
-        <td>@Html.Raw(Math.Round(Model.List2.Average(p => p.Squatting), 2))</td>
-    </tr>
-    <tr>
         <td>Проба Генчи(задержка дыхания после выдоха)</td>
         <td>@Html.Raw(Math.Round(Model.List1.Average(p => p.Genchi), 2))</td>
         <td>@Html.Raw(Math.Round(Model.List2.Average(p => p.Genchi), 2))</td>

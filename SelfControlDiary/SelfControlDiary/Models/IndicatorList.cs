@@ -25,12 +25,6 @@ namespace SelfControlDiary.Models
         public int ChSS { get; set; }
         public int ADS { get; set; }
         public int ADD { get; set; }
-        public int Run { get; set; }
-        public int Incline { get; set; }
-        public int Bending { get; set; }
-        public int? Pulling { get; set; }
-        public int Squatting { get; set; }
-        public int? Press { get; set; }
         public int Genchi { get; set; }
         public int Shtange { get; set; }
         public int CCC { get; set; }

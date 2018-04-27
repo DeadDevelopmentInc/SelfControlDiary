@@ -1,0 +1,61 @@
+﻿@model SelfControlDiary.ViewModels.EditStandardControlViewModel
+@{
+    ViewData["Title"] = "Изменение данных сдачи нормативов для студента " + Model.Student;
+}
+
+<h2>Изменение данных о замере для студента @Model.Student</h2>
+<form asp-action="EditStandardControl">
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <input asp-for="Id" type="hidden" />
+
+    <div class="form-group">
+        <label asp-for="Date" class="control-label">Дата замера</label>
+        <input asp-for="Date" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Semestr" class="control-label">Семестр</label>
+        <input asp-for="Semestr" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Run" class="control-label">Бег, дистанция в метрах</label>
+        <input asp-for="Run" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Incline" class="control-label">Наклон из положения сидя, см</label>
+        <input asp-for="Incline" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Bending" class="control-label">Отжимания от скамейки, раз</label>
+        <input asp-for="Bending" class="form-control" />
+    </div>
+
+    @if (Model.Sex == "Мужской")
+    {
+        <div class="form-group">
+            <label asp-for="Pulling" class="control-label">Подтягивания, раз</label>
+            <input asp-for="Pulling" class="form-control" />
+        </div>
+    }
+    else
+    {
+        <div class="form-group">
+            <label asp-for="Press" class="control-label">Пресс, раз</label>
+            <input asp-for="Press" class="form-control" />
+        </div>
+    }
+
+    <div class="form-group">
+        <label asp-for="Squatting" class="control-label">Приседания, раз</label>
+        <input asp-for="Squatting" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Изменить" class="btn btn-default" />
+    </div>
+
+</form>

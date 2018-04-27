@@ -68,42 +68,6 @@
         <td>@Html.Raw(Model.GetWeightVerdict())</td>
     </tr>
     <tr>
-        <td>Бег</td>
-        <td>@Html.Raw(Model.Run)</td>
-        <td>@Html.Raw(Model.GetRunVerdict())</td>
-    </tr>
-    <tr>
-        <td>Наклон из положения сидя</td>
-        <td>@Html.Raw(Model.Incline)</td>
-        <td>@Html.Raw(Model.GetInclineVerdict())</td>
-    </tr>
-    <tr>
-        <td>Отжимания</td>
-        <td>@Html.Raw(Model.Bending)</td>
-        <td>@Html.Raw(Model.GetBendingVerdict())</td>
-    </tr>
-    @if (Model.Stud.Sex == "Мужской")
-    {
-        <tr>
-            <td>Подтягивания</td>
-            <td>@Html.Raw(Model.Pulling)</td>
-            <td>@Html.Raw(Model.GetPullingVerdict())</td>
-        </tr>
-    }
-    else
-    {
-        <tr>
-            <td>Пресс</td>
-            <td>@Html.Raw(Model.Press)</td>
-            <td>@Html.Raw(Model.GetPressVerdict())</td>
-        </tr>
-    }
-    <tr>
-        <td>Приседания</td>
-        <td>@Html.Raw(Model.Squatting)</td>
-        <td>@Html.Raw(Model.GetSquattingVerdict())</td>
-    </tr>
-    <tr>
         <td>Проба Генчи(задержка дыхания после выдоха)</td>
         <td>@Html.Raw(Model.Genchi)</td>
         <td>@Html.Raw(Model.GetGenchiVerdict())</td>

@@ -38,16 +38,6 @@ namespace SelfControlDiary.ViewModels
         public int ADS { get; set; }
         [Range(50, 250, ErrorMessage = "АДД нужно указывать в ударах в минуту")]
         public int ADD { get; set; }
-        [Range(400, 2000, ErrorMessage = "Дистанцию нужно указывать в метрах")]
-        public int Run { get; set; }
-        [Range(-20, 30, ErrorMessage = "Значение наклона должно попадать в промежуток от -20 до 30")]
-        public int Incline { get; set; }
-        [Range(0, 100, ErrorMessage = "Кол-во отжиманий должно быть положительным числом")]
-        public int Bending { get; set; }
-        public int? Pulling { get; set; }
-        [Range(0, 150, ErrorMessage = "Кол-во приседаний должно быть положительным числом")]
-        public int Squatting { get; set; }
-        public int? Press { get; set; }
         [Range(1, 100, ErrorMessage = "Проба Генчи указывается в секундах")]
         public int Genchi { get; set; }
         [Range(1, 180, ErrorMessage = "Проба Штанге указывается в секундах")]

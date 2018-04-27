@@ -15,6 +15,7 @@ namespace SelfControlDiary.Models
         public DateTime BirthDate { get; set; }
 
         public List<IndicatorList> IndicatorLists { get; set; }
+        public List<StandardsControl> StandardsControls { get; set; }
         public Group Group { get; set; }
     }
 }
