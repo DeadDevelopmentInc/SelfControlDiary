@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - HACKATHON_2018</title>
-
+    <title>@ViewData["Title"] </title>
+    <link rel="shortcut icon" href="~/images/cardiogram.png" type="image/x-icon">
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
@@ -20,6 +20,7 @@
 
 </head>
 <body class="mainConteiner">
+    <div class="сonteiner">
     <table>
         <tr>
             <th>
@@ -32,13 +33,13 @@
             </th>
             <tr>
         </table>
-
+        <div class="container">
         @RenderBody()
+        </div>
+        </div>
         <footer class="footer">
             <p>&copy; 2018 - @DateTime.Now.Year SelfControlDiary</p>
         </footer>
-
-    </div>
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
