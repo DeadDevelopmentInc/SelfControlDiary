@@ -15,18 +15,16 @@
     padding-right: 15px;
 }
 
-
-.conteiner {
+.conteiner{
+   
     position: fixed;
-    width: 60%;
-    height:80%;
-    margin-bottom:100px;
-    background-image: linear-gradient(#c7c6e6,#9f9aa8);
+    width: 1000px;
+    background-image: linear-gradient(white,#f1f1f1);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 10px;
-    border-radius: 15px;
+    border-radius: 5px;
 }
 .containerBtn {
     position: absolute;
@@ -42,8 +40,9 @@
     }
 
 body {
+    min-width: 500px;
     position: fixed;
-    background-image: url(alexander-redl-185764-unsplash.jpg);
+    background-image: url(/css/rawpixel-com-603649-unsplash.jpg);
     font-size: 15px;
     font-weight: 400;
     font-family: 'Lato', sans-serif;

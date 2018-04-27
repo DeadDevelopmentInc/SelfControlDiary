@@ -1,14 +1,30 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Главная";
     Layout = "Layout";
 }
-<div class="text" id="pos">
-    <p>Здоровье — это лучшее богатство,<br />которое есть у нас!</p>
+<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<!-- Plugin CSS -->
+<link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href="css/creative.min.css" rel="stylesheet">
+<div id="headerwrap">
+    <header class="masthead text-center text-white d-flex">
+        <div class="container align-content-sm-center">
+            <div class="row centered">
+                <div class="col-lg-10 mx-auto">
+                    <h1 class="text-uppercase">
+                        <strong style="color: azure">Self Control Diary</strong>
+                    </h1>
+                    <hr>
+                </div>
+                <div class="col-lg-10 mx-auto">
+                    <p class="text-faded mb-5">Здоровое тело – продукт здорового рассудка</p>
+                    <a class="btn btn-primary btn-xl js-scroll-trigger"asp-controller="Account" asp-action="Register">Регистрация</a>
+                    <a class="btn btn-primary btn-xl js-scroll-trigger" asp-controller="Account" asp-action="Login">Вход</a>
+                </div>
+            </div>
+        </div>
+    </header>
 </div>
-<div class="containerBtn">
-    
-<div  class="btn-group-vertical" >
-  <a id="a"asp-controller="Account" asp-action="Register">Регистрация</a>
-  <a id="a"asp-controller="Account" asp-action="Login">Вход</a>
-    </div>
-    </div>
