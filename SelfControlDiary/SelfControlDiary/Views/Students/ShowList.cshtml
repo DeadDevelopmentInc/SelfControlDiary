@@ -11,81 +11,131 @@
         <td>Весоростовой индекс</td>
         <td>@Html.Raw(Model.GetVRIndex())</td>
         <td>@Html.Raw(Model.GetVRVerdict())</td>
+        <td>
+            <a class="btn btn-sm btn-primary" asp-controller="Graphics" asp-action="GetVRStatistic" asp-route-id="@Model.Stud.Id" asp-route-listId="@ViewBag.Id">Статистика</a>
+        </td>
     </tr>
     <tr>
         <td>Жизненный индекс</td>
         <td>@Html.Raw(Model.GetLifeIndex())</td>
         <td>@Html.Raw(Model.GetLifeVerdict())</td>
+        <td>
+            <a class="btn btn-sm btn-primary" asp-controller="Graphics" asp-action="GetLifeStatistic" asp-route-id="@Model.Stud.Id" asp-route-listId="@ViewBag.Id">Статистика</a>
+        </td>
+
     </tr>
     <tr>
         <td>Силовой индекс правой кисти</td>
         <td>@Html.Raw(Model.GetRightWristPowerIndex())</td>
         <td>@Html.Raw(Model.GetRightWristPowerVerdict())</td>
+        <td>
+            <a class="btn btn-sm btn-primary" asp-controller="Graphics" asp-action="GetLeftWristStatistic" asp-route-id="@Model.Stud.Id" asp-route-listId="@ViewBag.Id">Статистика</a>
+        </td>
     </tr>
     <tr>
         <td>Силовой индекс левой кисти</td>
         <td>@Html.Raw(Model.GetLeftWristPowerIndex())</td>
         <td>@Html.Raw(Model.GetLeftWristPowerVerdict())</td>
+        <td>
+            <a class="btn btn-sm btn-primary" asp-controller="Graphics" asp-action="GetRightWristStatistic" asp-route-id="@Model.Stud.Id" asp-route-listId="@ViewBag.Id">Статистика</a>
+        </td>
     </tr>
     <tr>
         <td>Становый индекс</td>
         <td>@Html.Raw(Model.GetBaseForceIndex())</td>
         <td>@Html.Raw(Model.GetBaseForceVerdict())</td>
+        <td>
+            <a class="btn btn-sm btn-primary" asp-controller="Graphics" asp-action="GetBaseForceStatistic" asp-route-id="@Model.Stud.Id" asp-route-listId="@ViewBag.Id">Статистика</a>
+        </td>
     </tr>
     <tr>
         <td>АПСК (Адаптационный потенциал системы кровообращения)</td>
         <td>@Html.Raw(Model.GetAPSKIndex())</td>
         <td>@Html.Raw(Model.GetAPSKVerdict())</td>
+        <td>
+            <a class="btn btn-sm btn-primary" asp-controller="Graphics" asp-action="GetAPSKStatistic" asp-route-id="@Model.Stud.Id" asp-route-listId="@ViewBag.Id">Статистика</a>
+        </td>
     </tr>
     <tr>
         <td>Показатель Кремптона</td>
         <td>@Html.Raw(Model.GetKremptonIndex())</td>
         <td>@Html.Raw(Model.GetKremptonVerdict())</td>
+        <td>
+            <a class="btn btn-sm btn-primary" asp-controller="Graphics" asp-action="GetKremptonStatistic" asp-route-id="@Model.Stud.Id" asp-route-listId="@ViewBag.Id">Статистика</a>
+        </td>
     </tr>
     <tr>
         <td>Вегетативный индекс Кердо</td>
         <td>@Html.Raw(Model.GetKerdoIndex())</td>
         <td>@Html.Raw(Model.GetKerdoVerdict())</td>
+        <td>
+            <a class="btn btn-sm btn-primary" asp-controller="Graphics" asp-action="GetKerdoStatistic" asp-route-id="@Model.Stud.Id" asp-route-listId="@ViewBag.Id">Статистика</a>
+        </td>
     </tr>
     <tr>
         <td>Коэффициент выносливости</td>
         <td>@Html.Raw(Model.GetStaminaCoef())</td>
         <td>@Html.Raw(Model.GetStaminaCoefVerdict())</td>
+        <td>
+            <a class="btn btn-sm btn-primary" asp-controller="Graphics" asp-action="GetStaminaCoefStatistic" asp-route-id="@Model.Stud.Id" asp-route-listId="@ViewBag.Id">Статистика</a>
+        </td>
     </tr>
     <tr>
         <td>Уровень физического состояния</td>
         <td>@Html.Raw(Model.GetUFS())</td>
         <td>@Html.Raw(Model.GetUFSVerdict())</td>
+        <td>
+            <a class="btn btn-sm btn-primary" asp-controller="Graphics" asp-action="GetUFSStatistic" asp-route-id="@Model.Stud.Id" asp-route-listId="@ViewBag.Id">Статистика</a>
+        </td>
     </tr>
     <tr>
         <td>Индекс Робинсона (ПДП)</td>
         <td>@Html.Raw(Model.GetRobinsonIndex())</td>
         <td>@Html.Raw(Model.GetRobinsonVerdict())</td>
+        <td>
+            <a class="btn btn-sm btn-primary" asp-controller="Graphics" asp-action="GetRobinsonStatistic" asp-route-id="@Model.Stud.Id" asp-route-listId="@ViewBag.Id">Статистика</a>
+        </td>
     </tr>
     <tr>
         <td>Индекс массы тела</td>
         <td>@Html.Raw(Model.GetWeightIndex())</td>
         <td>@Html.Raw(Model.GetWeightVerdict())</td>
+        <td>
+            <a class="btn btn-sm btn-primary" asp-controller="Graphics" asp-action="GetWeightStatistic" asp-route-id="@Model.Stud.Id" asp-route-listId="@ViewBag.Id">Статистика</a>
+        </td>
     </tr>
     <tr>
         <td>Проба Генчи(задержка дыхания после выдоха)</td>
         <td>@Html.Raw(Model.Genchi)</td>
         <td>@Html.Raw(Model.GetGenchiVerdict())</td>
+        <td>
+            <a class="btn btn-sm btn-primary" asp-controller="Graphics" asp-action="GetGenchiStatistic" asp-route-id="@Model.Stud.Id" asp-route-listId="@ViewBag.Id">Статистика</a>
+        </td>
     </tr>
     <tr>
         <td>Проба Штанге(задержка дыхания на вдохе)</td>
         <td>@Html.Raw(Model.Shtange)</td>
         <td>@Html.Raw(Model.GetShtangeVerdict())</td>
+        <td>
+            <a class="btn btn-sm btn-primary" asp-controller="Graphics" asp-action="GetShtangeStatistic" asp-route-id="@Model.Stud.Id" asp-route-listId="@ViewBag.Id">Статистика</a>
+        </td>
     </tr>
     <tr>
         <td>Функциональная проба ССС(20 приседаний за 30 секунд)</td>
         <td>@Html.Raw(Model.CCC)</td>
         <td>@Html.Raw(Model.GetCCCVerdict())</td>
+        <td>
+            <a class="btn btn-sm btn-primary" asp-controller="Graphics" asp-action="GetCCCStatistic" asp-route-id="@Model.Stud.Id" asp-route-listId="@ViewBag.Id">Статистика</a>
+        </td>
     </tr>
     <tr>
         <td>Ортостатическая проба</td>
         <td>@Html.Raw(Model.Stat)</td>
         <td>@Html.Raw(Model.GetStatVerdict())</td>
+        <td>
+            <a class="btn btn-sm btn-primary" asp-controller="Graphics" asp-action="GetStatStatistic" asp-route-id="@Model.Stud.Id" asp-route-listId="@ViewBag.Id">Статистика</a>
+        </td>
     </tr>
 </table>
-<a asp-action="IndicatorLists" asp-route-id="@Model.Stud.Id">Назад</a>
+<br>
+<a asp-action="IndicatorLists" asp-route-id="@Model.Stud.Id" class="btn btn-primary btn-xl js-scroll-trigger">Назад</a>

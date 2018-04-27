@@ -7,22 +7,22 @@ namespace SelfControlDiary.ViewModels
 {
     public static class IndicatorRatesNorms
     {
-        static int MinManVRIndex = 350;
-        static int MaxManVRIndex = 400;
-        static int MinGirlVRIndex = 325;
-        static int MaxGirlVRIndex = 375;
-        static int MinManLifeIndex = 65;
-        static int MaxManLifeIndex = 70;
-        static int MinGirlLifeIndex = 55;
-        static int MaxGirlLifeIndex = 60;
-        static int MinManPowerIndex = 70;
-        static int MaxManPowerIndex = 75;
-        static int MinGirlPowerIndex = 50;
-        static int MaxGirlPowerIndex = 60;
-        static int MinManBaseForceIndex = 200;
-        static int MaxManBaseForceIndex = 220;
-        static int MinGirlBaseForceIndex = 135;
-        static int MaxGirlBaseForceIndex = 150;
+        public static int MinManVRIndex = 350;
+        public static int MaxManVRIndex = 400;
+        public static int MinGirlVRIndex = 325;
+        public static int MaxGirlVRIndex = 375;
+        public static int MinManLifeIndex = 65;
+        public static int MaxManLifeIndex = 70;
+        public static int MinGirlLifeIndex = 55;
+        public static int MaxGirlLifeIndex = 60;
+        public static int MinManPowerIndex = 70;
+        public static int MaxManPowerIndex = 75;
+        public static int MinGirlPowerIndex = 50;
+        public static int MaxGirlPowerIndex = 60;
+        public static int MinManBaseForceIndex = 200;
+        public static int MaxManBaseForceIndex = 220;
+        public static int MinGirlBaseForceIndex = 135;
+        public static int MaxGirlBaseForceIndex = 150;
         static int[] BoysRun1 = new int[]
         {
             1500, 1450, 1400, 1350, 1300, 1250, 1200, 1150, 1100, 1000

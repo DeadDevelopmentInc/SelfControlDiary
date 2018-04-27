@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewData["Title"] = "Graphics";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="chartContainer" style="height: 50%; width: 100%;"></div>
+<a asp-action="ShowList" asp-controller="Students" asp-route-id="@ViewBag.Id">Назад</a>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+@section Scripts
+{
+<script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+animationEnabled: true,
+    title: {
+        text: "@Html.Raw(ViewBag.Tit)"
+},
+axisX: {
+    valueFormatString: "DD MMM"
+},
+axisY: {
+title: "Y",
+    prefix: "",
+    includeZero: true
+},
+data: [{
+type: "spline",
+xValueType: "dateTime",
+xValueFormatString: "DD MMM",
+yValueFormatString: "#,##",
+dataPoints: @Html.Raw(ViewBag.DataPointsUser)
+}]
+});
+chart.render();
+
+}
+</script>
+}

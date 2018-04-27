@@ -888,6 +888,7 @@ namespace SelfControlDiary.Controllers
                         Shtange = list.Shtange,
                         Stat = list.Stat
                     };
+                    ViewBag.Id = id;
                     return View(model);
                 }
                 else return RedirectToAction("AccessDenied");
@@ -955,5 +956,6 @@ namespace SelfControlDiary.Controllers
             };
             return View("Error", error);
         }
+
     }
 }
