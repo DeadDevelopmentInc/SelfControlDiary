@@ -120,6 +120,12 @@ body {
     font-size:20px;
 }
 
+#pos {
+    position: absolute;
+    top: 30%;
+    left: 40%;
+}
+
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
     /* Hide captions */
