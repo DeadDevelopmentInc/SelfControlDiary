@@ -91,55 +91,6 @@
         <td>@Html.Raw(Model.l2.GetWeightIndex())</td>
         <td>@Html.Raw(Model.l2.GetWeightVerdict())</td>
     </tr>
-    <tr>
-        <td>Бег</td>
-        <td>@Html.Raw(Model.l1.Run)</td>
-        <td>@Html.Raw(Model.l1.GetRunVerdict())</td>
-        <td>@Html.Raw(Model.l2.Run)</td>
-        <td>@Html.Raw(Model.l2.GetRunVerdict())</td>
-    </tr>
-    <tr>
-        <td>Наклон из положения сидя</td>
-        <td>@Html.Raw(Model.l1.Incline)</td>
-        <td>@Html.Raw(Model.l1.GetInclineVerdict())</td>
-        <td>@Html.Raw(Model.l2.Incline)</td>
-        <td>@Html.Raw(Model.l2.GetInclineVerdict())</td>
-    </tr>
-    <tr>
-        <td>Отжимания</td>
-        <td>@Html.Raw(Model.l1.Bending)</td>
-        <td>@Html.Raw(Model.l1.GetBendingVerdict())</td>
-        <td>@Html.Raw(Model.l2.Bending)</td>
-        <td>@Html.Raw(Model.l2.GetBendingVerdict())</td>
-    </tr>
-    @if (Model.Sex == "Мужской")
-    {
-    <tr>
-        <td>Подтягивания</td>
-        <td>@Html.Raw(Model.l1.Pulling)</td>
-        <td>@Html.Raw(Model.l1.GetPullingVerdict())</td>
-        <td>@Html.Raw(Model.l2.Pulling)</td>
-        <td>@Html.Raw(Model.l2.GetPullingVerdict())</td>
-    </tr>
-    }
-    else
-    {
-        <tr>
-            <td>Пресс</td>
-            <td>@Html.Raw(Model.l1.Press)</td>
-            <td>@Html.Raw(Model.l1.GetPressVerdict())</td>
-            <td>@Html.Raw(Model.l2.Press)</td>
-            <td>@Html.Raw(Model.l2.GetPressVerdict())</td>
-        </tr>
-    }
-        <tr>
-            <td>Приседания</td>
-            <td>@Html.Raw(Model.l1.Squatting)</td>
-            <td>@Html.Raw(Model.l1.GetSquattingVerdict())</td>
-            <td>@Html.Raw(Model.l2.Squatting)</td>
-            <td>@Html.Raw(Model.l2.GetSquattingVerdict())</td>
-        </tr>
-    <tr>
         <td>Проба Генчи(задержка дыхания после выдоха)</td>
         <td>@Html.Raw(Model.l1.Genchi)</td>
         <td>@Html.Raw(Model.l1.GetGenchiVerdict())</td>
