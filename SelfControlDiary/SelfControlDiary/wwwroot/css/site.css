@@ -17,6 +17,7 @@
 
 
 .conteiner {
+    overflow-y: scroll;
     position: fixed;
     width: 900px;
     height: 700px;
