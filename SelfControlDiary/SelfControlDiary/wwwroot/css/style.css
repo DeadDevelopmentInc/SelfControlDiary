@@ -105,13 +105,13 @@
 		position: relative;
 		text-align: left;
 		color:#A52A2A;
-		font-size:20px;
-		font-family:a;
+		font-size:30px;
+		font-family:lobster;
 	}
 .footer {
     position: absolute;
     text-align: center;
-    color: #A52A2A;
+    color: #000000;
     font-size: 20px;
     top: 90%;
     left: 50%;
