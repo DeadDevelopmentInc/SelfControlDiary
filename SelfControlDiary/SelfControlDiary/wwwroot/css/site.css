@@ -18,6 +18,7 @@
 
 .conteiner {
     overflow-y: scroll;
+    position: fixed;
     width: 1200px;
     height: 900px;
     background-image: linear-gradient(white,#f1f1f1);
@@ -41,7 +42,6 @@
     }
 
 body {
-    overflow-y:scroll;
     background-image: url(/css/rawpixel-com-603649-unsplash.jpg);
     font-size: 15px;
     font-weight: 400;
