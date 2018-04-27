@@ -11,15 +11,22 @@
     {
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a asp-area="" asp-controller="Faculties" asp-action="Index">Факультеты и группы</a>
-    <a asp-area="" asp-controller="Students" asp-action="Index">Студенты</a>
-    <a asp-area="" asp-controller="Users" asp-action="Index">Пользователи</a>
+    <a h>Факультеты и группы</a>
+    <a href="#">Студенты</a>
+    <a href="#">Пользователи</a>
     <a asp-controller="DataSample" asp-action="Index">Выборка</a>
-    <a asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm">Выход</a>
+    <form asp-area="" asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm">
+        <ul class="nav navbar-nav navbar-collapse">
+            <li>
+                <a href="#" onclick="document.forms['logoutForm'].submit()">Выход</a>
+            </li>
+        </ul>
+    </form>
 </div>
 
         <div id="main">
             <span style="font-size:30px; cursor:pointer" onclick="openNav()">&#9776; open </span>
+            <span style="font-size:30px; text-align:center">Дневник самоконтроля</span>
         </div>
 
         <script>
